@@ -1,5 +1,6 @@
 import keyboard
 import numpy as np
+import PyQt5
 #x=symbols('x',real=True)
 x="x"
 a=[[1,2,3],

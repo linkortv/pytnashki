@@ -1,6 +1,7 @@
 import keyboard
 import numpy as np
 import PyQt5
+import random
 #x=symbols('x',real=True)
 x="x"
 a=[[1,2,3],

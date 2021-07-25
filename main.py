@@ -3,35 +3,28 @@ import numpy as np
 import PyQt5
 import random
 
-def random_permutation(array):
-    length = len(array)
-    for i in range(0, length):
-        rnd = random.randint(0, length - 1)
-        # обмен элементов массива
-        temp = array[i]
-        array[i] = array[rnd]
-        array[rnd] = temp
-    return array
 
 def generate(a):
-    a=random_permutation(a)
+    random.shuffle(a)
+    print(a)
     if validate(a):
-        a=to2mer(a)
-        return  a 
+        return a
     else:
         generate(a)
-
+    return a
 def validate(a):
     #print(a)
     s=0
     for i in range(len(a)):
-        if a[i] != 'x' and i!=len(a):
+        if a[i] != 'x' and i!=len(a)-1:
             for j in range(i+1,len(a)):
                 if a[j] != 'x':
                     if a[i]>a[j]:
                         s+=1
                         
-            #print(s) 
+    # првоерка в какой строке находится х
+    # для иетода в котором в конце прибавляется номер строки
+    # данный метод не логичен и может являться неверным
     # if 0<=a.index('x')<=3:
     #     k=1
     # elif 4<=a.index('x')<=7:
@@ -114,12 +107,15 @@ def to2mer(a):
     b.append(k4)
     return b
 
-a=[1,2,3,4,
+a1=[1,2,3,4,
 5,6,7,8,
 9,10,11,12,
 13,14,15,'x']
-a=generate(a)
-a=np.array(a)
+a=generate(a1)
+a=to2mer(a)
+
+a=np.asarray(a)
+
 print(a)
 print("-----------------------------------")
 keyboard.hook(print_pressed_keys)

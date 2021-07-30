@@ -114,5 +114,5 @@ p=Logic()
 
 print("-----------------------------------")
 keyboard.hook(p.print_pressed_keys)
-
-keyboard.wait()
+keyboard.wait('Esc')
+print(p.a)

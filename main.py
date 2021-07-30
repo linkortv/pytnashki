@@ -7,7 +7,8 @@ class Logic():
   _a1=[1,2,3,4,5,6,7,8, 9,10,11,12,13,14,15,'x']
 
   def __init__(self):
-    self.a=np.asarray(self.to2mer(self.generate(self._a1)))
+    self.a=self.to2mer(self.generate(self._a1))
+    print(self.a)
 
   def generate(self,a):
       random.shuffle(a)
@@ -111,8 +112,7 @@ class Logic():
 
 p=Logic()
 
-print(p.a)
 print("-----------------------------------")
 keyboard.hook(p.print_pressed_keys)
-print(p.a)
+
 keyboard.wait()
